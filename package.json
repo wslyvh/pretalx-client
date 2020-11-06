@@ -1,0 +1,44 @@
+{
+  "name": "pretalx-client",
+  "description": "A TypeScript client for the pretalx REST API",
+  "author": "wslyvh",
+  "license": "MIT",
+  "version": "0.1.0",
+  "keywords": [
+    "pretalx"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write 'src/**/*.ts'",
+    "lint": "eslint --fix 'src/**/*.ts'",
+    "esinit": "eslint --init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wslyvh/pretalx-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wslyvh/pretalx-client/issues"
+  },
+  "homepage": "https://github.com/wslyvh/pretalx-client#readme",
+  "devDependencies": {
+    "@types/fetch-mock": "^7.3.3",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint": "^7.12.1",
+    "fetch-mock": "^9.10.7",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
+  }
+}
