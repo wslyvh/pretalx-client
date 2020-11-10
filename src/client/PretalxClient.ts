@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { ClientResponse } from 'types/base';
-import { Event } from 'types';
+import { ClientResponse, PagedResult } from 'types/base';
+import { Event, Submission } from 'types';
 import { PretalxClientInterface } from './PretalxClientInterface';
 
 export default class PretalxClient implements PretalxClientInterface {
@@ -45,6 +45,46 @@ export default class PretalxClient implements PretalxClientInterface {
       };
     } catch (ex) {
       const response = ex.response as AxiosResponse;
+      return {
+        status: response.status,
+        message: response.statusText,
+        data: null,
+      };
+    }
+  }
+
+  public async GetSubmissions(event: string): Promise<ClientResponse<PagedResult<Submission[]>>> {
+    try {
+      const result = await this.client.get(`events/${event}/submissions`);
+
+      return {
+        status: result.status,
+        message: result.statusText,
+        data: result.data ?? null,
+      };
+    } catch (ex) {
+      const response = ex.response as AxiosResponse;
+
+      return {
+        status: response.status,
+        message: response.statusText,
+        data: null,
+      };
+    }
+  }
+
+  public async GetSubmission(event: string, code: string): Promise<ClientResponse<Submission>> {
+    try {
+      const result = await this.client.get(`events/${event}/submissions/${code}`);
+
+      return {
+        status: result.status,
+        message: result.statusText,
+        data: result.data ?? null,
+      };
+    } catch (ex) {
+      const response = ex.response as AxiosResponse;
+
       return {
         status: response.status,
         message: response.statusText,
